@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 12:51:11 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/20 20:00:06 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/20 22:42:17 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,6 @@ int			if_sorted(t_ps **s_a);
 void		sort_three_numbers(t_ps **s_a);
 void		sort_four_and_five(t_ps **s_a, t_ps **s_b);
 int			smallest_number_index(t_ps **s_a);
+int			smallest_number_check(t_ps **s_a);
+void		five_and_more(t_ps **s_a, t_ps **s_b);
 #endif

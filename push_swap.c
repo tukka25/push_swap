@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 12:50:41 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/20 20:30:35 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/20 22:56:30 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int ac, char *av[])
 			free_list(s.stack_a);
 			exit(0);
 		}
-		if (ac_count(av) >= 3 || ac_count(av) <= 5)
+		if (ac_count(av) >= 3 && ac_count(av) <= 5)
 		{
 			// printf("index = %d", smallest_number_index(&s.stack_a));
 			if (ac_count(av) == 3)
@@ -49,11 +49,26 @@ int	main(int ac, char *av[])
 				printf("stack_a  = %d\n", lst->content);
 				lst = lst->next;
 			}
-			// if (if_sorted(&s.stack_a) == 0)
-			// 	printf("Well Done");
-			// else
-			// 	printf("Not Sorted");
-			// exit(0);
+			if (if_sorted(&s.stack_a) == 0)
+				printf("Well Done");
+			else
+				printf("Not Sorted");
+			exit(0);
+		}
+		else if (ac_count(av) > 5)
+		{
+			five_and_more(&s.stack_a, &s.stack_b);
+			lst = s.stack_a;
+			while (lst)
+			{
+				// printf("stack_a  = %d\n", lst->content);
+				lst = lst->next;
+			}
+			if (if_sorted(&s.stack_a) == 0)
+				printf("Well Done");
+			else
+				printf("Not Sorted");
+			exit(0);
 		}
 		// lst = s.stack_a;
 		// 	while (lst)
@@ -63,7 +78,6 @@ int	main(int ac, char *av[])
 		// 	}
 		// // s a(&s.stack_a);
 		// rra(&s.stack_a);
-		
 		// free_list(s.stack_a);
 		// lst = s.stack_a;
 		// printf("\n\n\n\n");
