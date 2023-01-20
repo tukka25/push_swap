@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 18:49:40 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/17 15:06:58 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/19 20:46:07 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ long	ps_atoi(const char *str, char **tmp)
 			exit(0);
 		}
 	}
-	if ((str[i] >= ' ' && str[i] <= '/') || (str[i] >= ':' && str[i] <= 127))
+	if ((str[i] >= ' ' && str[i] <= '/') || (str[i] >= ':' && str[i] < 127))
 	{
 		free_strings(tmp);
 		write(2, "Error\n", 6);
@@ -48,8 +48,67 @@ long	ps_atoi(const char *str, char **tmp)
 	return (result * sign);
 }
 
-// int main()
-// {
-// 	printf("ft_atoi = %ld\n", ps_atoi("4e", NULL));
-// 	printf("atoi    = %d",     atoi("4e"));
-// }
+void	double_checker(t_ps **lst)
+{
+	t_ps	*tmp;
+	t_ps	*last;
+
+	tmp = (*lst)->next;
+	last = (*lst);
+	while (last)
+	{
+		tmp = last->next;
+		while (tmp)
+		{
+			if (last->content == tmp->content)
+			{
+				free_list(*lst);
+				write(2, "Error\n", 6);
+				exit(0);
+			}
+			tmp = tmp->next;
+		}
+		last = last->next;
+	}
+}
+
+void	free_list(t_ps *lst)
+{
+	t_ps	*tmp;
+
+	while (lst)
+	{
+		tmp = lst;
+		lst = lst->next;
+		free(tmp);
+	}
+}
+
+void	rrr(t_ps **s_a, t_ps **s_b)
+{
+	rra((s_a));
+	rrb((s_b));
+}
+
+int	if_sorted(t_ps **s_a)
+{
+	t_ps	*tmp;
+	t_ps	*tmp2;
+
+	tmp = (*s_a);
+	tmp2 = tmp->next;
+	while (tmp)
+	{
+		tmp2 = tmp->next;
+		while (tmp2)
+		{
+			if (tmp->content > tmp2->content)
+			{
+				return (1);
+			}
+			tmp2 = tmp2->next;
+		}
+		tmp = tmp->next;
+	}
+	return (0);
+}

@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 20:39:48 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/16 21:14:19 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/19 19:47:56 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 typedef struct t_ps
 {
 	int				content;
-	struct t_ps	*next;
+	struct t_ps		*next;
 }	t_ps;
 
 int		ft_atoi(const char *str);
@@ -107,7 +107,7 @@ void	ft_lstadd_back(t_ps **lst, t_ps *new);
 
 void	ft_lstdelone(t_ps *lst, void (*del)(void *));
 
-void	ft_lstclear(t_ps **lst, void (*del)(void*));
+void	ft_lstclear(t_ps **lst);
 
 void	ft_lstiter(t_ps *lst, void (*f)(void *));
 

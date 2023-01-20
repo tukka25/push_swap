@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:11:55 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/16 22:54:25 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/19 20:43:12 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,21 @@ t_ps	*insert_into_list(char **str)
 	int		i;
 	int		j;
 	t_stack	s;
-	t_ps	*tmp;
+	// t_ps	*t;
 
 	i = 0;
 	s.stack_a = NULL;
-	// tmp = *lst;
+	// t = NULL;
 	while (str[i])
 	{
 		// printf("i = %d", i);
 		j = ps_atoi(str[i], str);
-		tmp = ft_lstnew(j);
-		ft_lstadd_back(&s.stack_a, tmp);
+		// t = ft_lstnew(j);
+		ft_lstadd_back(&s.stack_a, ft_lstnew(j));
+		// free(t);
 		i++;
 	}
+	free_strings(str);
 	// printf("lst = %d", lst->content);
 	return (s.stack_a);
 }
