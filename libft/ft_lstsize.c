@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 21:33:47 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/16 21:06:52 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/22 13:45:11 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 int	ft_lstsize(t_ps *lst)
 {
-	int	i;
+	int		i;
+	t_ps	*tmp;
 
 	i = 0;
+	tmp = lst;
 	if (lst == NULL)
 		return (0);
-	while (lst->next != NULL)
+	while (tmp->next != NULL)
 	{	
 		i++;
-		lst = lst->next;
+		tmp = tmp->next;
 	}
 	return (i + 1);
 }

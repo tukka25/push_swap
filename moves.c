@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:16:20 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/20 20:14:32 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/22 14:06:46 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,31 @@ void	sb(t_ps **lst)
 void	pb(t_ps **s_a, t_ps **s_b)
 {
 	t_ps		*tmp;
+	t_ps		**tmp2;
 
+	// if (!s_b)
+	// 	return ;
 	tmp = (*s_a);
-	(*s_a) = (*s_a)->next;
-	ft_lstadd_front((s_b), ft_lstnew(tmp->content));
+	tmp2 = s_b;
+	if ((*s_a)->next)
+		(*s_a) = (*s_a)->next;
+	ft_lstadd_front(tmp2, ft_lstnew(tmp->content));
 	write (1, "pb\n", 3);
-	free(tmp);
+	s_b = tmp2;
 }
 
 void	pa(t_ps **s_a, t_ps **s_b)
 {
 	t_ps	*tmp;
+	t_ps	**tmp2;
 
 	tmp = (*s_b);
-	ft_lstadd_front((s_a), ft_lstnew(tmp->content));
+	tmp2 = s_a;
+	ft_lstadd_front(tmp2, ft_lstnew(tmp->content));
 	write (1, "pa\n", 3);
-	(*s_b) = (*s_b)->next;
+	tmp = tmp->next;
+	(*s_b) = tmp;
+	s_a = tmp2;
 }
 
 void	rb(t_ps **s_b)

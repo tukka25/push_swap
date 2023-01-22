@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:19:56 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/20 21:28:07 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/21 18:13:05 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ int	smallest_number_index(t_ps **s_a)
 	t_ps	*tmp;
 	t_ps	*tmp2;
 	int		i;
-	int		j;
 
 	i = 1;
-	j = 1;
 	tmp = (*s_a);
 	while (tmp)
 	{

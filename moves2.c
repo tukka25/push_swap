@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:19:10 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/20 20:07:33 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/22 13:57:21 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@ void	ra(t_ps **s_a)
 	(*s_a) = (*s_a)->next;
 	// printf("tmp = %d\n", tmp->content);
 	ft_lstadd_back(&tmp, ft_lstnew(tmp2->content));
+	// printf("tmp = %d\n", tmp->content);
+	tmp2 = tmp;
 	while (tmp2 -> next)
 	{
 		pre = tmp2;
 		tmp2 = tmp2->next;
 	}
-	pre->next = NULL;
+	tmp2->next = NULL;
 	s_a = &tmp;
 	write(1, "ra\n", 3);
 	// printf("in = %d\n", (*s_a)->next->content);
