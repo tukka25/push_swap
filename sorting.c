@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 22:04:29 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/22 17:49:59 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/25 22:18:49 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	sort_four_and_five(t_ps **s_a, t_ps **s_b, int i)
 	}
 	else if (i == 5)
 	{
+		// printf("iiiii\n");
 		while (smallest_number_check(tmp) == 1)
 			rra(tmp);
 		pb(tmp, tmp2);
@@ -107,28 +108,46 @@ void	five_and_more(t_ps **s_a, t_ps **s_b)
 	t_ps	*t;
 	t_ps	**tmp2;
 	int		i;
+	int		j;
 
 	tmp = s_a;
 	tmp2 = s_b;
 	i = ft_lstsize((*tmp));
-	// printf("i = %d", i);
+	j = smallest_number_index(tmp);
+	// printf("j1 = %d", j);
 	// exit(0);
-	while (i > 5)
+	while (ft_lstsize((*tmp)) > 5)
 	{
-		while (smallest_number_check(tmp) == 1 && i > 5)
+		j = second_smallest_number_index(tmp);
+		if (second_smallest_number_index(tmp) <= ft_lstsize((*tmp)) / 2 && ft_lstsize((*tmp)) > 5 && smallest_number_index(tmp) != 1)
 		{
-			if (smallest_number_index(tmp) <= ft_lstsize((*tmp)) / 2)
+			while (second_smallest_number_index(tmp) > 1 && ft_lstsize((*tmp)) > 5 && smallest_number_index(tmp) != 1)
 			{
-				// if (smallest_number_index(&(*tmp)->next) == smallest_number_index(tmp) + 1)
-				// 	sa(tmp);
-				// else
-					ra(tmp);
+				ra(tmp);
+				j--;
+			}
+			pb(tmp, tmp2);
+		}
+		else if (second_smallest_number_index(tmp) > ft_lstsize((*tmp)) / 2 && ft_lstsize((*tmp)) > 5 && smallest_number_index(tmp) != 1)
+		{
+			while (second_smallest_number_index(tmp) > 1 && ft_lstsize((*tmp)) > 5 && smallest_number_index(tmp) != 1)
+			{
+				rra(tmp);
+				j--;
+			}
+			pb(tmp, tmp2);
+		}
+		while (smallest_number_check(tmp) == 1 && ft_lstsize((*tmp)) > 5)
+		{
+			if (smallest_number_index(tmp) <= ft_lstsize((*tmp)) / 2 && ft_lstsize((*tmp)) > 5)
+			{
+				ra(tmp);
 			}
 			else
 			{
-				if (if_sorted(tmp) == 0)
+				if (if_sorted(tmp) == 0 && ft_lstsize((*tmp)) > 5)
 				{
-					while ((*tmp2))
+					while ((*tmp2) && ft_lstsize((*tmp)))
 					{
 						pa(tmp, tmp2);
 						(*tmp2) = (*tmp2)->next;
@@ -138,24 +157,26 @@ void	five_and_more(t_ps **s_a, t_ps **s_b)
 				rra(tmp);
 			}
 		}
-		pb(tmp, tmp2);
-		// printf("tmp2 = %d\n", (*tmp2)->content);
-		// printf("t1 = %d\n", ft_lstsize((*tmp)));
+		if (ft_lstsize((*tmp)) > 5)
+			pb(tmp, tmp2);
+		t = (*tmp2);
+		if ((*tmp2)->next)
+			if ((*tmp2)->content < (*tmp2)->next->content)
+				sb(tmp2);
 		i--;
 	}
-	sort_four_and_five(tmp, tmp2, i);
+	sort_four_and_five(tmp, tmp2, ft_lstsize((*tmp)));
 	t = (*tmp2);
-	// int	j = 0;
 	while (t)
 	{
-		// printf("b = %d\n", (*tmp2)->content);
-		pa(tmp, tmp2);
-		// t = tmp2;
-		// if ((*t))
+		if (t->content > (*tmp)->content)
+		{
+			pa(tmp, tmp2);
+			sa(tmp);
+		}
+		else
+			pa(tmp, tmp2);
 		t = t->next;
-		// else
-		// 	break;
-		// j++;
 	}
 	return ;
 }

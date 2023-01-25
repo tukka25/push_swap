@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 12:50:41 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/22 16:41:37 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/25 22:14:07 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,10 @@ int	main(int ac, char *av[])
 		{
 			five_and_more(&s.stack_a, &s.stack_b);
 			// printf("i = %d\n", ft_lstsize(s.stack_a));
-			// exit(0);
 			// if (if_sorted(&s.stack_a) == 0)
 			// 	printf("Well Done\n");
 			// else
-			// 	printf("Not Sorted");
+			// 	printf("Not Sorted\n");
 			// lst = s.stack_a;
 			// while (lst)
 			// {
@@ -71,7 +70,8 @@ int	main(int ac, char *av[])
 			// 	lst = lst->next;
 			// }
 			// printf("s_b = %d", s.stack_b->content);
-			// free_list(s.stack_a);
+			free_list(s.stack_a);
+			// free_list(s.stack_b);
 			exit(0);
 		}
 		

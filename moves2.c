@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:19:10 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/22 13:57:21 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:51:46 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ra(t_ps **s_a)
 {
 	t_ps	*tmp;
 	t_ps	*tmp2;
-	t_ps	*pre;
+	// t_ps	*pre;
 
 	tmp = (*s_a)->next;
 	tmp2 = (*s_a);
@@ -27,7 +27,7 @@ void	ra(t_ps **s_a)
 	tmp2 = tmp;
 	while (tmp2 -> next)
 	{
-		pre = tmp2;
+		// pre = tmp2;
 		tmp2 = tmp2->next;
 	}
 	tmp2->next = NULL;
@@ -57,8 +57,8 @@ void	rra(t_ps **s_a)
 		tmp3 = tmp3->next;
 	}
 	// printf("tmp32 = %d\n", pre->content);
-	// free(pre);
 	pre->next = NULL;
+	// free(pre);
 	(*s_a) = tmp;
 	write(1, "rra\n", 4);
 }

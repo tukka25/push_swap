@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:11:55 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/19 20:43:12 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:54:17 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ char	**checker(char *av[])
 		str = ft_split(av[i], ' ');
 		if (!*str)
 		{
+			free(str);
+			free(a);
 			write(2, "Error\n", 6);
 			exit(0);
 		}
