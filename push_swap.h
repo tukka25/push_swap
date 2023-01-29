@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 12:51:11 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/24 21:41:39 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/28 15:51:41 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,8 @@ void		sort_four_and_five(t_ps **s_a, t_ps **s_b, int i);
 int			smallest_number_index(t_ps **s_a);
 int			smallest_number_check(t_ps **s_a);
 void		five_and_more(t_ps **s_a, t_ps **s_b);
-int			second_smallest_number_index(t_ps **s_a);
+int			middle_number_index(t_ps **s_a);
+t_ps		*finding_the_middle(t_ps **tmp);
+int			second_biggest_number_index(t_ps **s_a);
+int			biggest_number_index(t_ps **s_a);
 #endif

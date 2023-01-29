@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 22:04:29 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/25 22:18:49 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/29 15:41:08 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void	sort_four_and_five(t_ps **s_a, t_ps **s_b, int i)
 	}
 	else if (i == 5)
 	{
-		// printf("iiiii\n");
 		while (smallest_number_check(tmp) == 1)
 			rra(tmp);
 		pb(tmp, tmp2);
@@ -112,72 +111,118 @@ void	five_and_more(t_ps **s_a, t_ps **s_b)
 
 	tmp = s_a;
 	tmp2 = s_b;
-	i = ft_lstsize((*tmp));
-	j = smallest_number_index(tmp);
-	// printf("j1 = %d", j);
-	// exit(0);
-	while (ft_lstsize((*tmp)) > 5)
+	i = smallest_number_index(tmp);
+	j = middle_number_index(tmp);
+	t = (*tmp);
+	if (j >= ft_lstsize((*tmp)) / 2)
 	{
-		j = second_smallest_number_index(tmp);
-		if (second_smallest_number_index(tmp) <= ft_lstsize((*tmp)) / 2 && ft_lstsize((*tmp)) > 5 && smallest_number_index(tmp) != 1)
+		while (middle_number_index(tmp) != 1)
 		{
-			while (second_smallest_number_index(tmp) > 1 && ft_lstsize((*tmp)) > 5 && smallest_number_index(tmp) != 1)
-			{
-				ra(tmp);
-				j--;
-			}
-			pb(tmp, tmp2);
+			rra(tmp);
+			j++;
 		}
-		else if (second_smallest_number_index(tmp) > ft_lstsize((*tmp)) / 2 && ft_lstsize((*tmp)) > 5 && smallest_number_index(tmp) != 1)
+	}
+	else
+	{
+		while ((middle_number_index(tmp) != 1))
 		{
-			while (second_smallest_number_index(tmp) > 1 && ft_lstsize((*tmp)) > 5 && smallest_number_index(tmp) != 1)
-			{
-				rra(tmp);
-				j--;
-			}
-			pb(tmp, tmp2);
+			ra(tmp);
+			j++;
 		}
-		while (smallest_number_check(tmp) == 1 && ft_lstsize((*tmp)) > 5)
+	}
+	t = (*tmp);
+	ra(tmp);
+	while (t->content != (*tmp)->content)
+	{
+		if (t->content > (*tmp)->content)
+			pb(tmp, tmp2);
+		else
+			ra(tmp);
+	}
+	while (ft_lstsize((*tmp)) > 2 && if_sorted(tmp) == 1)
+	{
+		t = finding_the_middle(tmp);
+		while (t->content != (*tmp)->content && ft_lstsize((*tmp)) > 2)
 		{
-			if (smallest_number_index(tmp) <= ft_lstsize((*tmp)) / 2 && ft_lstsize((*tmp)) > 5)
-			{
+			if (t->content > (*tmp)->content && ft_lstsize((*tmp)) > 2)
+				pb(tmp, tmp2);
+			else
 				ra(tmp);
+		}
+	}
+	if ((*tmp)->content > (*tmp)->next->content)
+		sa(tmp);
+	// exit(0);
+	while (ft_lstsize(*tmp2))
+	{
+		if (second_biggest_number_index(tmp2) == 1)
+			pa(tmp, tmp2);
+		while (biggest_number_index(tmp2) != 1)
+		{
+			if (biggest_number_index(tmp2) <= ft_lstsize((*tmp2)) / 2)
+			{
+				if (biggest_number_index(tmp2) == 2)
+					sb(tmp2);
+				else
+					rb(tmp2);
 			}
 			else
 			{
-				if (if_sorted(tmp) == 0 && ft_lstsize((*tmp)) > 5)
-				{
-					while ((*tmp2) && ft_lstsize((*tmp)))
-					{
-						pa(tmp, tmp2);
-						(*tmp2) = (*tmp2)->next;
-					}
-					return ;
-				}
-				rra(tmp);
+				rrb(tmp2);
 			}
 		}
-		if (ft_lstsize((*tmp)) > 5)
-			pb(tmp, tmp2);
-		t = (*tmp2);
-		if ((*tmp2)->next)
-			if ((*tmp2)->content < (*tmp2)->next->content)
-				sb(tmp2);
-		i--;
-	}
-	sort_four_and_five(tmp, tmp2, ft_lstsize((*tmp)));
-	t = (*tmp2);
-	while (t)
-	{
-		if (t->content > (*tmp)->content)
-		{
-			pa(tmp, tmp2);
+		pa(tmp, tmp2);
+		if ((*tmp)->content > (*tmp)->next->content)
 			sa(tmp);
-		}
-		else
-			pa(tmp, tmp2);
-		t = t->next;
 	}
+	// pa(tmp, tmp2);
+	// exit(0);
+	// sort_four_and_five(tmp, tmp2, ft_lstsize((*tmp)));
+	// while (ft_lstsize((*tmp)) < ft_lstsize())
+	// {
+	// 	pa(tmp, tmp2);
+	// }
+	// t = (*tmp);
+	// printf("s a  = %d\n", ft_lstsize(t));
+	// exit(0);
+	// while (t)
+	// {
+	// 	printf("stack a = %d\n", t->content);
+	// 	t = t->next;
+	// }
+	// exit(0);
+	// t = (*tmp2);
+	// while (t)
+	// {
+	// 	printf("stack b = %d\n", t->content);
+	// 	t = t->next;
+	// }
+	// sort_four_and_five(tmp, tmp2, ft_lstsize((*tmp)));
+	// t = (*tmp2);
+	// while (t)
+	// {
+	// 	if (t->content > (*tmp)->content)
+	// 	{
+	// 		pa(tmp, tmp2);
+	// 		sa(tmp);
+	// 	}
+	// 	else
+	// 		pa(tmp, tmp2);
+	// 	t = t->next;
+	// }
+	// return ;
+	// t = (*tmp2);
+	// while (t)
+	// {
+	// 	if (t->content > (*tmp)->content)
+	// 	{
+	// 		pa(tmp, tmp2);
+	// 		sa(tmp);
+	// 	}
+	// 	else
+	// 		pa(tmp, tmp2);
+	// 	t = t->next;
+	// }
 	return ;
 }
 

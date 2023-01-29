@@ -44,3 +44,82 @@
 // 	}
 // 	return ;
 // }
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+// j = middle_number_index(tmp);
+// 	// printf("j = %d\n", j);
+// 	// exit(0);
+// 	t = (*tmp);
+// 	while (j - 1 < ft_lstsize((*tmp)))
+// 	{
+// 		rra(tmp);
+// 		// printf("tmp = %d\n", (*tmp)->content);
+// 		j++;
+// 	}
+// 	t = (*tmp);
+// 	ra(tmp);
+// 	while (t->content != (*tmp)->content)
+// 	{
+// 		if (t->content > (*tmp)->content)
+// 		{
+// 			pb(tmp, tmp2);
+// 		}
+// 		else
+// 		{
+// 			ra(tmp);
+// 		}
+// 	}
+// 	while (ft_lstsize((*tmp)) > 5)
+// 	{
+// 		t = finding_the_middle(tmp);
+// 		printf("t = %d\n", t->content);
+// 		while (t->content != (*tmp)->content)
+// 		{
+// 			if (t->content > (*tmp)->content)
+// 			{
+// 				pb(tmp, tmp2);
+// 			}
+// 			else
+// 			{
+// 				ra(tmp);
+// 			}
+// 		}
+// 	}
+// 	// exit(0);
+// 	sort_four_and_five(tmp, tmp2, ft_lstsize((*tmp)));
+// 	while (ft_lstsize((*tmp)) < 50)
+// 	{
+// 		pa(tmp, tmp2);
+// 	}
+// 	t = (*tmp);
+// 	// printf("s a  = %d\n", ft_lstsize(t));
+// 	// exit(0);
+// 	while (t)
+// 	{
+// 		printf("stack a = %d\n", t->content);
+// 		t = t->next;
+// 	}
+// 	exit(0);
+// 	t = (*tmp2);
+// 	while (t)
+// 	{
+// 		printf("stack b = %d\n", t->content);
+// 		t = t->next;
+// 	}
+// 	exit(0);
+// 	// sort_four_and_five(tmp, tmp2, ft_lstsize((*tmp)));
+// 	// t = (*tmp2);
+// 	// while (t)
+// 	// {
+// 	// 	if (t->content > (*tmp)->content)
+// 	// 	{
+// 	// 		pa(tmp, tmp2);
+// 	// 		sa(tmp);
+// 	// 	}
+// 	// 	else
+// 	// 		pa(tmp, tmp2);
+// 	// 	t = t->next;
+// 	// }
+// 	return ;

@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:19:56 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/25 16:43:17 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/29 14:53:35 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	smallest_number_check(t_ps **s_a)
 	return (0);
 }
 
-int	second_smallest_number_index(t_ps **s_a)
+int	middle_number_index(t_ps **s_a)
 {
 	t_ps	*tmp;
 	t_ps	*tmp2;
@@ -81,6 +81,7 @@ int	second_smallest_number_index(t_ps **s_a)
 	{
 		tmp = tmp3;
 		j = 0;
+		k = 0;
 		if (i != 1)
 		{
 			tmp2 = tmp2->next;
@@ -88,16 +89,134 @@ int	second_smallest_number_index(t_ps **s_a)
 		}
 		while (tmp)
 		{
-			if (n < tmp->content)
+			if (n <= tmp->content)
+				j++;
+			else
+			{
+				k++;
+			}
+			tmp = tmp->next;
+		}
+		if (!tmp && k == ft_lstsize((*s_a)) / 2)
+		{
+			return (i);
+		}
+		i++;
+		len--;
+	}
+	return (0);
+}
+
+t_ps	*finding_the_middle(t_ps **tmp)
+{
+	t_ps	*t;
+	int		j;
+
+	j = middle_number_index(tmp);
+	t = (*tmp);
+	if (j >= ft_lstsize((*tmp)) / 2)
+	{
+		while (middle_number_index(tmp) != 1)
+		{
+			rra(tmp);
+			j++;
+		}
+	}
+	else
+	{
+		while ((middle_number_index(tmp) != 1))
+		{
+			ra(tmp);
+			j++;
+		}
+	}
+	t = (*tmp);
+	ra(tmp);
+	return (t);
+}
+
+int	second_biggest_number_index(t_ps **s_a)
+{
+	t_ps	*tmp;
+	t_ps	*tmp2;
+	t_ps	*tmp3;
+	int		i;
+	int		k = 0;
+	int		len;
+	int		n = 0;
+	int		j = 0;
+
+	i = 1;
+	tmp = (*s_a);
+	tmp3 = (*s_a);
+	tmp2 = tmp;
+	len = ft_lstsize(tmp3);
+	n = (*s_a)->content;
+	while (len)
+	{
+		tmp = tmp3;
+		j = 0;
+		k = 0;
+		if (i != 1)
+		{
+			tmp2 = tmp2->next;
+			n = tmp2->content;
+		}
+		while (tmp)
+		{
+			if (n <= tmp->content)
 				j++;
 			else
 				k++;
 			tmp = tmp->next;
 		}
-		if (!tmp && j + 2 == ft_lstsize(*s_a))
-		{
+		if (!tmp && k == ft_lstsize(tmp3) - 2)
 			return (i);
+		i++;
+		len--;
+	}
+	return (0);
+}
+
+int	biggest_number_index(t_ps **s_a)
+{
+	t_ps	*tmp;
+	t_ps	*tmp2;
+	t_ps	*tmp3;
+	int		i;
+	int		k = 0;
+	int		len;
+	int		n = 0;
+	int		j = 0;
+
+	i = 1;
+	tmp = (*s_a);
+	tmp3 = (*s_a);
+	tmp2 = tmp;
+	len = ft_lstsize(tmp3);
+	if (!(*s_a))
+		return (1);
+	n = (*s_a)->content;
+	while (len)
+	{
+		tmp = tmp3;
+		j = 0;
+		k = 0;
+		if (i != 1)
+		{
+			tmp2 = tmp2->next;
+			n = tmp2->content;
 		}
+		while (tmp)
+		{
+			if (n <= tmp->content)
+				j++;
+			else
+				k++;
+			tmp = tmp->next;
+		}
+		if (!tmp && k == ft_lstsize((tmp3)) - 1)
+			return (i);
 		i++;
 		len--;
 	}
