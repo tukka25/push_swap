@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 12:51:11 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/28 15:51:41 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/31 14:46:12 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_stack
 }	t_stack;
 
 void		par(char *s);
-t_ps		*insert_into_list(char *av[]);
+void		insert_into_list(char **str, t_ps **s_a);
 int			ac_len(char *av[]);
 char		**checker(char *av[]);
 int			ac_count(char *av[]);
@@ -46,7 +46,7 @@ void		rr(t_ps **s_a, t_ps **s_b);
 void		rra(t_ps **s_a);
 void		rrb(t_ps **s_b);
 void		rrr(t_ps **s_a, t_ps **s_b);
-void		free_list(t_ps *lst);
+void		free_list(t_ps **lst);
 int			if_sorted(t_ps **s_a);
 void		sort_three_numbers(t_ps **s_a);
 void		sort_four_and_five(t_ps **s_a, t_ps **s_b, int i);
@@ -57,4 +57,7 @@ int			middle_number_index(t_ps **s_a);
 t_ps		*finding_the_middle(t_ps **tmp);
 int			second_biggest_number_index(t_ps **s_a);
 int			biggest_number_index(t_ps **s_a);
+int			quarter_number_index(t_ps **s_a);
+void		more_than_hundred(t_ps **s_a, t_ps **s_b);
+t_ps		*finding_the_quarter(t_ps **tmp);
 #endif

@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:16:20 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/22 14:06:46 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/30 21:25:24 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ void	pb(t_ps **s_a, t_ps **s_b)
 	t_ps		*tmp;
 	t_ps		**tmp2;
 
-	// if (!s_b)
-	// 	return ;
 	tmp = (*s_a);
+	// tmp3 = (*s_a);
 	tmp2 = s_b;
-	if ((*s_a)->next)
-		(*s_a) = (*s_a)->next;
-	ft_lstadd_front(tmp2, ft_lstnew(tmp->content));
+	(*s_a) = (*s_a)->next;
+	tmp->next = NULL;
+	ft_lstadd_front(tmp2, tmp);
+	// free(tmp);
 	write (1, "pb\n", 3);
 	s_b = tmp2;
 }

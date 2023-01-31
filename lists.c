@@ -6,34 +6,35 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:11:55 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/24 16:54:17 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/31 14:39:37 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_ps	*insert_into_list(char **str)
+void	insert_into_list(char **str, t_ps **s_a)
 {
 	int		i;
 	int		j;
-	t_stack	s;
-	// t_ps	*t;
+	// t_ps	*new;
 
 	i = 0;
-	s.stack_a = NULL;
-	// t = NULL;
+	// k = 0; 
 	while (str[i])
 	{
 		// printf("i = %d", i);
 		j = ps_atoi(str[i], str);
-		// t = ft_lstnew(j);
-		ft_lstadd_back(&s.stack_a, ft_lstnew(j));
+		// new = ft_lstnew(j);
+		ft_lstadd_back(s_a, ft_lstnew(j));
+		// if (new)
+		// 	free(new);
 		// free(t);
 		i++;
+		// k++;
 	}
+	// ft_lstclear(s_a);
 	free_strings(str);
-	// printf("lst = %d", lst->content);
-	return (s.stack_a);
+	// exit(0);
 }
 
 int	ac_len(char *av[])

@@ -6,13 +6,14 @@ SRC =	push_swap.c \
 		moves.c     \
 		moves2.c    \
 		sorting.c	\
-		utils2.c
+		utils2.c    \
+		sorting2.c  
    
 OBJS = $(SRC:.c=.o)
 
 CC = cc
 
-CFLAGS = -g -fsanitize=address -Wall -Werror -Wextra
+CFLAGS = -g  -Wall -Werror -Wextra #-fsanitize=address
 
 all:$(NAME)
 

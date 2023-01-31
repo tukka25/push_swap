@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 12:50:41 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/29 15:43:37 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/31 14:45:56 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int ac, char *av[])
 			ps_atoi(str[i], str);
 			i++;
 		}
-		s.stack_a = insert_into_list(str);
+		insert_into_list(str, &s.stack_a);
 		double_checker(&s.stack_a);
 		if (if_sorted(&s.stack_a) == 0)
 		{
@@ -53,39 +53,39 @@ int	main(int ac, char *av[])
 				printf("Well Done");
 			else
 				printf("Not Sorted");
+			ft_lstclear(&s.stack_a);
 			exit(0);
 		}
 		else if (ac_count(av) > 3)
 		{
-			if (ac_count(av) > 100)
+			if (ac_count(av) <= 100)
 			{
 				five_and_more(&s.stack_a, &s.stack_b);
 			}
 			else
-				
-			// printf("i = %d\n", ft_lstsize(s.stack_a));
-			// if (if_sorted(&s.stack_a) == 0)
-			// 	printf("Well Done\n");
-			// else
-			// 	printf("Not Sorted\n");
-			// lst = s.stack_a;
-			// while (lst)
-			// {
-			// 	printf("stack_a before  = %d\n", lst->content);
-			// 	lst = lst->next;
-			// }
-			// printf("s_b = %d", s.stack_b->content);
-			// free_list(s.stack_a);
-			// free_list(s.stack_b);
+			{
+				more_than_hundred(&s.stack_a, &s.stack_b);
+			}
+			// ft_lstclear(&s.stack_a);
+			free_list(&s.stack_a);
 			exit(0);
 		}
-		// printf("stack_a2 = %d", s.stack_a->content);
-		// while (s.stack_b)
+		// pb(&s.stack_a, &s.stack_b);
+		// lst = s.stack_a;
+		// while (lst)
 		// {
-		// 	printf("lst = %d\n", s.stack_b->content);
-		// 	s.stack_b = s.stack_b->next;
+		// 	printf("lst a = %d\n", lst->content);
+		// 	lst = lst->next;
 		// }
-		// free_list(&s.stack_a);
+		// printf("\n\n");
+		// lst = s.stack_b;
+		// while (lst)
+		// {
+		// 	printf("lst b = %d\n", lst->content);
+		// 	lst = lst->next;
+		// }
+		// free_list(s.stack_a);
+		// free_list(s.stack_b);
 		// printf("lst = %d\n", s.stack_a->content);
 		// printf("lst = %d\n", lst->next->content);
 	}

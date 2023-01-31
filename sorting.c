@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 22:04:29 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/29 15:41:08 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/30 16:14:17 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,13 +106,11 @@ void	five_and_more(t_ps **s_a, t_ps **s_b)
 	t_ps	**tmp;
 	t_ps	*t;
 	t_ps	**tmp2;
-	int		i;
 	int		j;
 
 	tmp = s_a;
 	tmp2 = s_b;
-	i = smallest_number_index(tmp);
-	j = middle_number_index(tmp);
+	j = quarter_number_index(tmp);
 	t = (*tmp);
 	if (j >= ft_lstsize((*tmp)) / 2)
 	{
@@ -153,7 +151,7 @@ void	five_and_more(t_ps **s_a, t_ps **s_b)
 	if ((*tmp)->content > (*tmp)->next->content)
 		sa(tmp);
 	// exit(0);
-	while (ft_lstsize(*tmp2))
+	while ((*tmp2))
 	{
 		if (second_biggest_number_index(tmp2) == 1)
 			pa(tmp, tmp2);

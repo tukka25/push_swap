@@ -40,7 +40,9 @@ SRCS = ft_memset.c		                \
 	   ft_lstnew.c						\
 	   ft_lstadd_back.c					\
 		ft_lstadd_front.c			    \
-		ft_lstsize.c
+		ft_lstsize.c                    \
+		ft_lstclear.c                   \
+		ft_lstdelone.c  
 	   
 
 

@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 20:39:48 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/22 13:45:23 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/30 21:43:59 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ t_ps	*ft_lstlast(t_ps *lst);
 
 void	ft_lstadd_back(t_ps **lst, t_ps *new);
 
-void	ft_lstdelone(t_ps *lst, void (*del)(void *));
+void	ft_lstdelone(t_ps *lst);
 
 void	ft_lstclear(t_ps **lst);
 

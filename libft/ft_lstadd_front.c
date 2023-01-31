@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 20:02:20 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/16 21:06:52 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:56:59 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	ft_lstadd_front(t_ps **lst, t_ps *new)
 {
-	new->next = *lst;
-	*lst = new;
+	if (!*lst)
+		*lst = new;
+	else
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }
