@@ -4,7 +4,7 @@
 // 		{
 // 			if (smallest_number_index(tmp) <= ft_lstsize((*tmp)) / 2)
 // 			{
-// 				// if (smallest_number_index(&(*tmp)->next) == smallest_number_index(tmp) + 1)
+// 	// if (smallest_number_index(&(*tmp)->next) == smallest_number_index(tmp) + 1)
 // 				// 	sa(tmp);
 // 				// else
 // 					ra(tmp);
@@ -123,3 +123,5 @@
 // 	// 	t = t->next;
 // 	// }
 // 	return ;
+
+// /usr/bin/python3 python_visualizer.py `ruby -e "puts (0..100).to_a.shuffle.join(' ')"`

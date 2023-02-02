@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 18:49:40 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/31 14:45:46 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:53:11 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,12 @@ long	ps_atoi(const char *str, char **tmp)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + str[i++] - '0';
-		if (((result > INT_MAX && sign == 1) || (result > 2147483648 && sign == -1)))
-		{
-			free_strings(tmp);
-			write(2, "Error\n", 6);
-			exit(0);
-		}
+		if (((result > INT_MAX && sign == 1)
+				|| (result > 2147483648 && sign == -1)))
+			free_and_exit(tmp);
 	}
 	if ((str[i] >= ' ' && str[i] <= '/') || (str[i] >= ':' && str[i] < 127))
-	{
-		free_strings(tmp);
-		write(2, "Error\n", 6);
-		exit(0);
-	}
+		free_and_exit(tmp);
 	return (result * sign);
 }
 
@@ -62,7 +55,7 @@ void	double_checker(t_ps **lst)
 		{
 			if (last->content == tmp->content)
 			{
-				free_list(*lst);
+				free_list(lst);
 				write(2, "Error\n", 6);
 				exit(0);
 			}
@@ -76,20 +69,20 @@ void	free_list(t_ps **lst)
 {
 	t_ps	*tmp;
 
-	while (lst)
+	while ((*lst)->next)
 	{
-		tmp = lst;
-		lst = lst->next;
+		tmp = *lst;
+		(*lst) = (*lst)->next;
 		free(tmp);
 	}
-	free(lst);
-	lst = NULL;
+	free(*lst);
 }
 
-void	rrr(t_ps **s_a, t_ps **s_b)
+void	free_and_exit(char **tmp)
 {
-	rra((s_a));
-	rrb((s_b));
+	free_strings(tmp);
+	write(2, "Error\n", 6);
+	exit(0);
 }
 
 int	if_sorted(t_ps **s_a)

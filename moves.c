@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:16:20 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/30 21:25:24 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:41:38 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,10 @@ void	pb(t_ps **s_a, t_ps **s_b)
 	t_ps		**tmp2;
 
 	tmp = (*s_a);
-	// tmp3 = (*s_a);
 	tmp2 = s_b;
 	(*s_a) = (*s_a)->next;
 	tmp->next = NULL;
 	ft_lstadd_front(tmp2, tmp);
-	// free(tmp);
 	write (1, "pb\n", 3);
 	s_b = tmp2;
 }
@@ -57,26 +55,21 @@ void	pb(t_ps **s_a, t_ps **s_b)
 void	pa(t_ps **s_a, t_ps **s_b)
 {
 	t_ps	*tmp;
-	t_ps	**tmp2;
 
 	tmp = (*s_b);
-	tmp2 = s_a;
-	ft_lstadd_front(tmp2, ft_lstnew(tmp->content));
+	(*s_b) = (*s_b)->next;
+	tmp->next = NULL;
+	ft_lstadd_front(s_a, tmp);
 	write (1, "pa\n", 3);
-	tmp = tmp->next;
-	(*s_b) = tmp;
-	s_a = tmp2;
 }
 
 void	rb(t_ps **s_b)
 {
-	t_ps	*tmp;
 	t_ps	*tmp2;
 
-	tmp = (*s_b)->next;
 	tmp2 = (*s_b);
 	(*s_b) = (*s_b)->next;
-	ft_lstadd_back(&tmp, ft_lstnew(tmp2->content));
-	s_b = &tmp;
+	tmp2->next = NULL;
+	ft_lstadd_back(s_b, tmp2);
 	write (1, "rb\n", 3);
 }

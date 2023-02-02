@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 15:12:33 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/17 12:07:48 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:47:38 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,6 @@ int	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + str[i++] - '0';
-		// if (((result > INT_MAX && sign == 1) || (result > 2147483648 && sign == -1)))
-		// {
-		// 	free_strings(tmp);
-		// 	write(2, "Error\n", 6);
-		// 	exit(0);
-		// }
 	}
 	return (result * sign);
 }

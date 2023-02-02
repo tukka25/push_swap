@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 22:21:22 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/12 18:11:35 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:47:51 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,6 @@ int	ft_uputnbr(unsigned int nb)
 	int	i;
 
 	i = 0;
-	// if (nb < 0)
-	// {
-	// 	i += ft_putchar('-');
-	// 	nb = -nb;
-	// }
 	if (nb > 9)
 	{
 		i += ft_uputnbr(nb / 10);

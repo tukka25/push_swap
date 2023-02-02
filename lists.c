@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:11:55 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/31 14:39:37 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:15:30 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,39 +16,15 @@ void	insert_into_list(char **str, t_ps **s_a)
 {
 	int		i;
 	int		j;
-	// t_ps	*new;
 
 	i = 0;
-	// k = 0; 
 	while (str[i])
 	{
-		// printf("i = %d", i);
 		j = ps_atoi(str[i], str);
-		// new = ft_lstnew(j);
 		ft_lstadd_back(s_a, ft_lstnew(j));
-		// if (new)
-		// 	free(new);
-		// free(t);
 		i++;
-		// k++;
 	}
-	// ft_lstclear(s_a);
 	free_strings(str);
-	// exit(0);
-}
-
-int	ac_len(char *av[])
-{
-	int		i;
-
-	i = 0;
-	if (!av)
-		return (0);
-	while (av[i])
-	{
-		i++;
-	}
-	return (i);
 }
 
 int	ac_count(char *av[])
@@ -67,11 +43,8 @@ int	ac_count(char *av[])
 		if (ft_strchr(av[i], ' ') != NULL)
 		{
 			s = ft_split(av[i], ' ');
-			while (s[j] != NULL)
-			{
-				j++;
+			while (s[j++] != NULL)
 				k++;
-			}
 			free_strings(s);
 		}
 		else
@@ -94,31 +67,20 @@ char	**checker(char *av[])
 	j = 0;
 	k = 0;
 	str = NULL;
-	a = malloc((ac_count(av)+ 1) * sizeof(char *));
+	a = ft_calloc((ac_count(av) + 1), sizeof(char *));
 	while (av[i] != NULL)
 	{
 		str = ft_split(av[i], ' ');
-		if (!*str)
-		{
-			free(str);
-			free(a);
-			write(2, "Error\n", 6);
-			exit(0);
-		}
+		check_if_empty(str, a);
 		while (str[j] != NULL)
-		{
-			a[k] = ft_strdup(str[j]);
-			k++;
-			j++;
-		}
+			a[k++] = ft_strdup(str[j++]);
 		if (str)
 			free_strings(str);
 		i++;
 		j = 0;
 	}
-	// free_strings(str);
-	// printf("k = %d", k);
 	a[k] = NULL;
+	num_check(a);
 	return (a);
 }
 
