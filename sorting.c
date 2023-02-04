@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 22:04:29 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/01 22:44:27 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/02 18:15:51 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,7 @@ void	sort_four_and_five(t_ps **s_a, t_ps **s_b, int i)
 	if (index < 3 && ft_lstsize((*tmp)) == 3)
 		three_numbers_loop(tmp, tmp2, 3);
 	else if (i == 5)
-	{
-		while (smallest_number_check(tmp) == 1)
-			rra(tmp);
-		pb(tmp, tmp2);
-		while (smallest_number_check(tmp) == 1)
-			rra(tmp);
-		pb(tmp, tmp2);
-		sort_three_numbers(tmp);
-		pa(tmp, tmp2);
-		pa(tmp, tmp2);
-	}
+		five_numbers(tmp, tmp2);
 	else
 		three_numbers_loop(tmp, tmp2, 0);
 }
@@ -109,4 +99,27 @@ int	biggest_number_index(t_ps **s_a)
 		vars.len--;
 	}
 	return (0);
+}
+
+void	five_numbers(t_ps **tmp, t_ps **tmp2)
+{
+	while (smallest_number_check(tmp) == 1)
+	{
+		if (smallest_number_index(tmp) <= ft_lstsize((*tmp)) / 2)
+			ra(tmp);
+		else
+			rra(tmp);
+	}
+	pb(tmp, tmp2);
+	while (smallest_number_check(tmp) == 1)
+	{
+		if (smallest_number_index(tmp) <= ft_lstsize((*tmp)) / 2)
+			ra(tmp);
+		else
+			rra(tmp);
+	}
+	pb(tmp, tmp2);
+	sort_three_numbers(tmp);
+	pa(tmp, tmp2);
+	pa(tmp, tmp2);
 }

@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 12:51:11 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/02 16:14:52 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/02 18:15:18 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,5 @@ void		parsing_and_insert(char **str, char *av[], int i, t_ps **s_a);
 void		sorting_main(char *av[], t_ps **s_a, t_ps **s_b);
 void		num_check(char **a);
 void		check_if_empty(char **str, char **a);
+void		five_numbers(t_ps **tmp, t_ps **tmp2);
 #endif
